@@ -25,12 +25,14 @@ app = FastAPI(
 # Allow React frontend to communicate with FastAPI
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://datastraw-roster-frontend.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Employee CRUD APIs (Step 7)
 app.include_router(employee_router)
 
